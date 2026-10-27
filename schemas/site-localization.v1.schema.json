@@ -9,8 +9,8 @@
   "routing":{"type":"object","additionalProperties":false,"required":["strategy"],"properties":{"strategy":{"enum":["NONE","SUBPATH"]},"defaultLocalePrefix":{"type":"boolean"}}}
  },
  "allOf":[
-  {"if":{"properties":{"mode":{"const":"SINGLE"}}},"then":{"properties":{"locales":{"maxItems":1},"routing":{"properties":{"strategy":{"const":"NONE"},"defaultLocalePrefix":{"const":false}}}}}},
-  {"if":{"properties":{"mode":{"const":"MULTI"}}},"then":{"properties":{"locales":{"minItems":2},"routing":{"properties":{"strategy":{"const":"SUBPATH"}}}}}}
+  {"if":{"properties":{"mode":{"const":"SINGLE"}}},"then":{"properties":{"locales":{"type":"array","maxItems":1},"routing":{"type":"object","properties":{"strategy":{"const":"NONE"},"defaultLocalePrefix":{"const":false}}}}}},
+  {"if":{"properties":{"mode":{"const":"MULTI"}}},"then":{"properties":{"locales":{"type":"array","minItems":2},"routing":{"type":"object","properties":{"strategy":{"const":"SUBPATH"}}}}}}
  ],
  "$defs":{"locale":{"type":"string","minLength":2,"maxLength":63,"pattern":"^[A-Za-z]{2,8}(-[A-Za-z0-9]{1,8})*$"}}
 }
