@@ -1,4 +1,5 @@
 export type Edition='CLOUD_UNLIMITED'|'OPERATOR'|'STUDIO';
+export type { SitePublicConfigV1, PublicRenderRequestV1, PublicRenderResultV1, DeliveryProjectionV1, PublishState, PublishJobV1, VerifiedReleaseV1 } from './publishing.js';
 export type {BuiltinModulePackageV1, DraftPreviewV1} from './modules.js';
 export type LicenseState='UNACTIVATED'|'VALID'|'GRACE'|'EXPIRED'|'REVOKED'|'INVALID_SIGNATURE'|'WRONG_INSTALLATION'|'UNSUPPORTED_FORMAT';
 export interface LicensePayload {
