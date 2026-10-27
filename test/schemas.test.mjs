@@ -21,3 +21,10 @@ test('license validates shape, not cryptographic trust',async()=>{
  const validate=ajv.compile(await json('../schemas/license.v1.schema.json'));
  assert.equal(validate({format:'mbs-platform-license-v1',kid:'example',payload:{edition:'STUDIO'},signature:'not-a-signature'}),false);
 });
+test('localization config is separate from published page/release v1',async()=>{
+ const validate=ajv.compile(await json('../schemas/site-localization.v1.schema.json'));
+ const c={schemaVersion:1,mode:'SINGLE',defaultLocale:'ru-RU',locales:['ru-RU'],routing:{strategy:'NONE'},missingTranslationPolicy:'OMIT'};
+ assert.equal(validate(c),true,JSON.stringify(validate.errors));assert.equal(validate({...c,locales:['ru-RU','en-US']}),false);
+ assert.equal(validate({...c,mode:'MULTI',locales:['ru-RU','en-US'],routing:{strategy:'SUBPATH'}}),true);
+ assert.equal(validate({...c,routing:{strategy:'SUBPATH'}}),false);
+});

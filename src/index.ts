@@ -25,4 +25,6 @@ export interface ReleaseManifest {
  modules:{id:string;version:string;sha256:string}[];
  assets:{objectKey:string;sha256:string;mimeType:string;sizeBytes:number}[];
 }
-export interface APIError {code:string;message:string;details:unknown[];requestId:string}
+export interface APIError {code:string;message:string;details:unknown[];requestId:string;params?:Record<string,string|number|boolean>}
+export type {SiteLocalizationConfig,SiteLocalizationMode,TranslationState,LocaleDescriptor,LocalizedPageRef,LocaleRouteMapping} from './localization.js';
+export {canonicalLocale,normalizeLocalizationConfig,localeRoutes} from './localization.js';

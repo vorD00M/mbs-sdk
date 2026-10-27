@@ -3,6 +3,6 @@
  "description":"Public MBS Platform data contracts; no Core or Authority implementation",
  "files":["dist","schemas","examples","README.md"],
  "exports":{".":{"types":"./dist/index.d.ts","import":"./dist/index.js"},"./schemas/*":"./schemas/*"},
- "scripts":{"build":"tsc","test":"node --test test/*.test.mjs","typecheck":"tsc --noEmit"},
+ "scripts":{"build":"tsc","test":"npm run build && node --test test/*.test.mjs","typecheck":"tsc --noEmit"},
  "devDependencies":{"ajv":"8.20.0","ajv-formats":"3.0.1","typescript":"5.9.3"}
 }
