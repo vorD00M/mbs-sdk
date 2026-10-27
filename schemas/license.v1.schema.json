@@ -1,0 +1,16 @@
+{
+ "$schema":"https://json-schema.org/draft/2020-12/schema","$id":"https://mbsplatform.online/schemas/license.v1.json",
+ "type":"object","additionalProperties":false,"required":["format","kid","payload","signature"],
+ "properties":{
+  "format":{"const":"mbs-platform-license-v1"},"kid":{"type":"string","minLength":1,"maxLength":100},
+  "signature":{"type":"string","pattern":"^[A-Za-z0-9_-]{86}$"},
+  "payload":{"type":"object","additionalProperties":false,"required":["license_id","installation_id","edition","features","unlimited_sites","unlimited_accounts","white_label","resale_enabled","max_installations","issued_at","expires_at","updates_entitlement"],"properties":{
+   "license_id":{"type":"string","format":"uuid"},"installation_id":{"type":"string","format":"uuid"},
+   "edition":{"enum":["CLOUD_UNLIMITED","OPERATOR","STUDIO"]},
+   "features":{"type":"array","uniqueItems":true,"maxItems":100,"items":{"type":"string","maxLength":100}},
+   "unlimited_sites":{"type":"boolean"},"unlimited_accounts":{"type":"boolean"},"white_label":{"type":"boolean"},"resale_enabled":{"type":"boolean"},
+   "max_installations":{"type":"integer","minimum":1},"issued_at":{"type":"string","format":"date-time"},
+   "expires_at":{"anyOf":[{"type":"null"},{"type":"string","format":"date-time"}]},"updates_entitlement":{"const":"ALL_STANDARD_FOREVER"}
+  }}
+ }
+}

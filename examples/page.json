@@ -1,0 +1,5 @@
+{
+ "schemaVersion":1,"pageId":"00000000-0000-4000-8000-000000000001","locale":"ru-RU",
+ "seo":{"title":"Example","description":"Schema fixture, not a deployed site"},"themeRef":"mbs/default@1.0.0",
+ "layout":{"id":"root","type":"grid","regions":[{"id":"main","semantic":"main","blocks":[{"id":"hero-1","module":"mbs/hero","version":"1.0.0","props":{"title":"Example","subtitle":""}}]}]}
+}
