@@ -1,5 +1,10 @@
 # MBS SDK
 
+The Go `licensing` package contains the public JCS/Ed25519 wire codec, installation
+proof formats and state rules. Issuance credentials and commercial entitlement
+management remain exclusively in the private Authority. License v1 now requires
+key binding, monotonic sequence and an explicit signed online/offline policy.
+
 Public data contracts for MBS Platform. This repository contains no private Go
 Core, Authority implementation, signing keys, deployment credentials or content.
 

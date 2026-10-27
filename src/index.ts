@@ -1,9 +1,10 @@
 export type Edition='CLOUD_UNLIMITED'|'OPERATOR'|'STUDIO';
 export type LicenseState='UNACTIVATED'|'VALID'|'GRACE'|'EXPIRED'|'REVOKED'|'INVALID_SIGNATURE'|'WRONG_INSTALLATION'|'UNSUPPORTED_FORMAT';
 export interface LicensePayload {
- license_id:string;installation_id:string;edition:Edition;features:string[];
+ license_id:string;installation_id:string;installation_public_key:string;edition:Edition;features:string[];
  unlimited_sites:boolean;unlimited_accounts:boolean;white_label:boolean;resale_enabled:boolean;
  max_installations:number;issued_at:string;expires_at:string|null;updates_entitlement:'ALL_STANDARD_FOREVER';
+ lease_mode:'online'|'offline';lease_expires_at:string|null;grace_period_seconds:number;sequence:number;revoked:boolean;
 }
 export interface LicenseEnvelope {format:'mbs-platform-license-v1';kid:string;payload:LicensePayload;signature:string}
 export interface ModuleManifest {

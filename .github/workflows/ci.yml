@@ -13,3 +13,6 @@ jobs:
       - run: npm test
       - run: npm run build
       - run: npm audit --audit-level=moderate
+      - uses: actions/setup-go@v5
+        with: {go-version: '1.27.3'}
+      - run: go test -race ./...

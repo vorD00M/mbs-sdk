@@ -4,7 +4,10 @@
  "properties":{
   "format":{"const":"mbs-platform-license-v1"},"kid":{"type":"string","minLength":1,"maxLength":100},
   "signature":{"type":"string","pattern":"^[A-Za-z0-9_-]{86}$"},
-  "payload":{"type":"object","additionalProperties":false,"required":["license_id","installation_id","edition","features","unlimited_sites","unlimited_accounts","white_label","resale_enabled","max_installations","issued_at","expires_at","updates_entitlement"],"properties":{
+  "payload":{"type":"object","additionalProperties":false,"required":["license_id","installation_id","installation_public_key","edition","features","unlimited_sites","unlimited_accounts","white_label","resale_enabled","max_installations","issued_at","expires_at","updates_entitlement","lease_mode","lease_expires_at","grace_period_seconds","sequence","revoked"],"properties":{
+   "installation_public_key":{"type":"string","pattern":"^[A-Za-z0-9_-]{43}$"},
+   "lease_mode":{"enum":["online","offline"]},"lease_expires_at":{"anyOf":[{"type":"null"},{"type":"string","format":"date-time"}]},
+   "grace_period_seconds":{"type":"integer","minimum":0,"maximum":7776000},"sequence":{"type":"integer","minimum":1,"maximum":9007199254740991},"revoked":{"type":"boolean"},
    "license_id":{"type":"string","format":"uuid"},"installation_id":{"type":"string","format":"uuid"},
    "edition":{"enum":["CLOUD_UNLIMITED","OPERATOR","STUDIO"]},
    "features":{"type":"array","uniqueItems":true,"maxItems":100,"items":{"type":"string","maxLength":100}},
