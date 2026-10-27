@@ -1,4 +1,5 @@
 export type Edition='CLOUD_UNLIMITED'|'OPERATOR'|'STUDIO';
+export type {BuiltinModulePackageV1, DraftPreviewV1} from './modules.js';
 export type LicenseState='UNACTIVATED'|'VALID'|'GRACE'|'EXPIRED'|'REVOKED'|'INVALID_SIGNATURE'|'WRONG_INSTALLATION'|'UNSUPPORTED_FORMAT';
 export interface LicensePayload {
  license_id:string;installation_id:string;installation_public_key:string;edition:Edition;features:string[];
