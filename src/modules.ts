@@ -21,6 +21,7 @@ export interface DraftPreviewV1 {
     format: 'mbs-draft-preview-v1';
     siteId: string;
     pageId: string;
+    registryDigest: string;
     localization: import('./localization.js').SiteLocalizationConfig;
     document: import('./index.js').PageDocument;
     targets: { pageId: string; siteId: string; locale: string; path: string; previewHref: string }[];
