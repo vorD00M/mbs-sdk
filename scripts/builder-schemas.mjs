@@ -9,7 +9,7 @@ const en=(...values)=>({enum:values});
 const ref=name=>({$ref:base+'builder-common.v1.schema.json#/$defs/'+name});
 const external=name=>({$ref:base+name+(name==='site-localization.v1'?'.json':'.schema.json')});
 const schema=(name,value)=>({$schema:'https://json-schema.org/draft/2020-12/schema',$id:base+name+'.schema.json',...value});
-const uuid={type:'string',format:'uuid'},version={type:'string',pattern:'^[0-9]+\\.[0-9]+\\.[0-9]+$'},id={type:'string',minLength:1,maxLength:100,pattern:'^[^\\u0000-\\u001F\\u007F]+$'};
+const uuid={type:'string',format:'uuid'},version={type:'string',pattern:'^[0-9]+\\.[0-9]+\\.[0-9]+$'},id={type:'string',minLength:1,maxLength:100,pattern:'^[^\\x00-\\x1F\\x7F]+$'};
 const packageId={type:'string',pattern:'^[a-z][a-z0-9-]*/[a-z][a-z0-9-]*$',maxLength:150};
 const themeRef={type:'string',pattern:'^[a-z][a-z0-9-]*/[a-z][a-z0-9-]*@[0-9]+\\.[0-9]+\\.[0-9]+$',maxLength:200};
 const locale={type:'string',pattern:'^[A-Za-z]{2,3}(-[A-Za-z0-9]{2,8})*$',maxLength:35};

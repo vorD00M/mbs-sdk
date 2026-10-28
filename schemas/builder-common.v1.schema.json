@@ -6,7 +6,7 @@
       "type": "string",
       "minLength": 1,
       "maxLength": 100,
-      "pattern": "^[^\\u0000-\\u001F\\u007F]+$"
+      "pattern": "^[^\\x00-\\x1F\\x7F]+$"
     },
     "uuid": {
       "type": "string",
@@ -389,7 +389,7 @@
               "type": "string",
               "minLength": 1,
               "maxLength": 100,
-              "pattern": "^[^\\u0000-\\u001F\\u007F]+$"
+              "pattern": "^[^\\x00-\\x1F\\x7F]+$"
             },
             "semanticRole": {
               "enum": [
@@ -487,7 +487,7 @@
               "type": "string",
               "minLength": 1,
               "maxLength": 100,
-              "pattern": "^[^\\u0000-\\u001F\\u007F]+$"
+              "pattern": "^[^\\x00-\\x1F\\x7F]+$"
             },
             "semanticRole": {
               "enum": [
@@ -598,7 +598,7 @@
               "type": "string",
               "minLength": 1,
               "maxLength": 100,
-              "pattern": "^[^\\u0000-\\u001F\\u007F]+$"
+              "pattern": "^[^\\x00-\\x1F\\x7F]+$"
             },
             "semanticRole": {
               "enum": [
@@ -671,7 +671,7 @@
               "type": "string",
               "minLength": 1,
               "maxLength": 100,
-              "pattern": "^[^\\u0000-\\u001F\\u007F]+$"
+              "pattern": "^[^\\x00-\\x1F\\x7F]+$"
             },
             "semanticRole": {
               "enum": [
@@ -740,7 +740,7 @@
               "type": "string",
               "minLength": 1,
               "maxLength": 100,
-              "pattern": "^[^\\u0000-\\u001F\\u007F]+$"
+              "pattern": "^[^\\x00-\\x1F\\x7F]+$"
             },
             "semanticRole": {
               "enum": [
@@ -960,7 +960,7 @@
           "type": "string",
           "minLength": 1,
           "maxLength": 100,
-          "pattern": "^[^\\u0000-\\u001F\\u007F]+$"
+          "pattern": "^[^\\x00-\\x1F\\x7F]+$"
         },
         "title": {
           "type": "string",
@@ -1041,7 +1041,7 @@
             "type": "string",
             "minLength": 1,
             "maxLength": 100,
-            "pattern": "^[^\\u0000-\\u001F\\u007F]+$"
+            "pattern": "^[^\\x00-\\x1F\\x7F]+$"
           },
           "uniqueItems": true
         }
