@@ -4,7 +4,7 @@ export { designCategories } from './builder.js';
 export type { SitePublicConfigV2, PublicRenderRequestV2 } from './builder.js';
 export { layoutLocations, moveLayoutNode, insertLayoutNode, removeLayoutNode, duplicateLayoutNode, upgradePageV1 } from './layout.js';
 export type { SitePublicConfigV1, PublicRenderRequestV1, PublicRenderResultV1, DeliveryProjectionV1, PublishState, PublishJobV1, VerifiedReleaseV1 } from './publishing.js';
-export type {BuiltinModulePackageV1, DraftPreviewV1} from './modules.js';
+export type {BuiltinModulePackageV1, BuiltinModulePackageV2, DraftPreviewV1} from './modules.js';
 export type LicenseState='UNACTIVATED'|'VALID'|'GRACE'|'EXPIRED'|'REVOKED'|'INVALID_SIGNATURE'|'WRONG_INSTALLATION'|'UNSUPPORTED_FORMAT';
 export interface LicensePayload {
  license_id:string;installation_id:string;installation_public_key:string;edition:Edition;features:string[];

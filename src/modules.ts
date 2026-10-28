@@ -26,3 +26,15 @@ export interface DraftPreviewV1 {
     document: import('./index.js').PageDocument;
     targets: { pageId: string; siteId: string; locale: string; path: string; previewHref: string }[];
 }
+
+// Builder-only compiled packages. The frozen core/v1 package contract is not
+// widened: legacy renderers cannot execute these modules accidentally.
+export interface BuiltinModulePackageV2 extends Omit<BuiltinModulePackageV1, 'format'|'engineApi'|'hydration'|'capabilities'> {
+    format: 'mbs-module-package-v2';
+    engineApi: 'builder/v1';
+    hydration: 'none'|'islands';
+    capabilities: ('responsive'|'ssr'|'preview'|'client-islands')[];
+    allowedSlots: import('./builder.js').BuilderSlot[];
+    islands: ('navigation'|'carousel'|'tabs'|'collection'|'form')[];
+    labels: Record<'ru-RU'|'en-US', {title:string;description:string}>;
+}
