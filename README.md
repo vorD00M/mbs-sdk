@@ -6,7 +6,9 @@ The additive `CatalogPresetV1` envelope wraps the unchanged `DesignPresetV1`.
 It adds localized ru-RU/en-US tags and at least two named composition axes with
 localized descriptions. Its `contentDigest` is lowercase SHA-256 of RFC 8785
 canonical JSON `{preset, metadata}`. The envelope's format and digest fields are
-not included in that hash. These declarations do not prove visual uniqueness;
+not included in that hash. New catalog versions use bounded numeric SemVer
+without leading zeroes, while frozen legacy version acceptance is unchanged.
+These declarations do not prove visual uniqueness;
 the 1040-preset render and design review remain separate acceptance gates.
 
 `DesignLibraryV2` describes a data-only ZIP: a manifest, preset envelopes,

@@ -29,3 +29,10 @@ test('manifest and dry-run report have closed versioned contracts and no signatu
     assert.equal(schema('design-import-report.v1')(report), true);
     assert.equal(schema('design-import-report.v1')({ ...report, csrfDisabled: true }), false);
 });
+test('catalog exact versions are bounded canonical numbers without changing legacy version acceptance', () => {
+    for (const version of ['01.0.0', '1.00.0', '1.0.0-beta', '9'.repeat(100) + '.0.0']) {
+        const value = envelope(); value.preset.version = version;
+        assert.equal(schema('catalog-preset.v1')(value), false);
+    }
+    assert.equal(schema('design-preset.v1')({ ...preset, version: '01.0.0' }), true);
+});
