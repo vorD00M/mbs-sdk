@@ -1,0 +1,95 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://mbsplatform.online/schemas/page.v2.schema.json",
+  "type": "object",
+  "additionalProperties": false,
+  "properties": {
+    "schemaVersion": {
+      "const": 2
+    },
+    "pageId": {
+      "type": "string",
+      "format": "uuid"
+    },
+    "locale": {
+      "type": "string",
+      "pattern": "^[A-Za-z]{2,3}(-[A-Za-z0-9]{2,8})*$",
+      "maxLength": 35
+    },
+    "seo": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "title": {
+          "type": "string",
+          "minLength": 0,
+          "maxLength": 200
+        },
+        "description": {
+          "type": "string",
+          "minLength": 0,
+          "maxLength": 500
+        }
+      },
+      "required": [
+        "title",
+        "description"
+      ]
+    },
+    "themeRef": {
+      "type": "string",
+      "pattern": "^[a-z][a-z0-9-]*/[a-z][a-z0-9-]*@[0-9]+\\.[0-9]+\\.[0-9]+$",
+      "maxLength": 200
+    },
+    "siteThemeRef": {
+      "anyOf": [
+        {
+          "$ref": "https://mbsplatform.online/schemas/builder-common.v1.schema.json#/$defs/revision"
+        },
+        {
+          "type": "null"
+        }
+      ]
+    },
+    "siteShellRef": {
+      "anyOf": [
+        {
+          "$ref": "https://mbsplatform.online/schemas/builder-common.v1.schema.json#/$defs/revision"
+        },
+        {
+          "type": "null"
+        }
+      ]
+    },
+    "layout": {
+      "$ref": "https://mbsplatform.online/schemas/builder-common.v1.schema.json#/$defs/layoutNode"
+    },
+    "bindings": {
+      "type": "object",
+      "maxProperties": 20,
+      "propertyNames": {
+        "pattern": "^[a-z][a-z0-9_-]{0,63}$",
+        "not": {
+          "enum": [
+            "__proto__",
+            "prototype",
+            "constructor"
+          ]
+        }
+      },
+      "additionalProperties": {
+        "$ref": "https://mbsplatform.online/schemas/builder-common.v1.schema.json#/$defs/source"
+      }
+    }
+  },
+  "required": [
+    "schemaVersion",
+    "pageId",
+    "locale",
+    "seo",
+    "themeRef",
+    "siteThemeRef",
+    "siteShellRef",
+    "layout"
+  ]
+}
