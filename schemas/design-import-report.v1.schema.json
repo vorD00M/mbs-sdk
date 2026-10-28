@@ -1,0 +1,107 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://mbsplatform.online/schemas/design-import-report.v1.schema.json",
+  "type": "object",
+  "additionalProperties": false,
+  "properties": {
+    "format": {
+      "const": "mbs-design-import-report-v1"
+    },
+    "scope": {
+      "enum": [
+        "offline",
+        "workspace"
+      ]
+    },
+    "workspaceId": {
+      "type": "string",
+      "format": "uuid"
+    },
+    "catalogRevision": {
+      "type": "integer",
+      "minimum": 0
+    },
+    "pack": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "id": {
+          "type": "string",
+          "minLength": 1,
+          "maxLength": 40
+        },
+        "version": {
+          "type": "string",
+          "pattern": "^(0|[1-9][0-9]*)\\.(0|[1-9][0-9]*)\\.(0|[1-9][0-9]*)$",
+          "maxLength": 40
+        },
+        "digest": {
+          "type": "string",
+          "pattern": "^[0-9a-f]{64}$"
+        }
+      },
+      "required": [
+        "id",
+        "version",
+        "digest"
+      ]
+    },
+    "presets": {
+      "type": "array",
+      "minItems": 1,
+      "maxItems": 1040,
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "properties": {
+          "id": {
+            "type": "string",
+            "pattern": "^mbs/[a-z-]+/[0-9]{3}$"
+          },
+          "version": {
+            "type": "string",
+            "pattern": "^(0|[1-9][0-9]*)\\.(0|[1-9][0-9]*)\\.(0|[1-9][0-9]*)$",
+            "maxLength": 40
+          },
+          "contentDigest": {
+            "type": "string",
+            "pattern": "^[0-9a-f]{64}$"
+          },
+          "action": {
+            "enum": [
+              "add",
+              "reuse",
+              "conflict"
+            ]
+          }
+        },
+        "required": [
+          "id",
+          "version",
+          "contentDigest",
+          "action"
+        ]
+      }
+    },
+    "canApply": {
+      "type": "boolean"
+    },
+    "warnings": {
+      "type": "array",
+      "maxItems": 20,
+      "items": {
+        "type": "string",
+        "minLength": 1,
+        "maxLength": 200
+      }
+    }
+  },
+  "required": [
+    "format",
+    "scope",
+    "pack",
+    "presets",
+    "canApply",
+    "warnings"
+  ]
+}

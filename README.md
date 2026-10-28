@@ -1,5 +1,35 @@
 # MBS SDK
 
+## Design Catalog Contracts (5C-A)
+
+The additive `CatalogPresetV1` envelope wraps the unchanged `DesignPresetV1`.
+It adds localized ru-RU/en-US tags and at least two named composition axes with
+localized descriptions. Its `contentDigest` is lowercase SHA-256 of RFC 8785
+canonical JSON `{preset, metadata}`. The envelope's format and digest fields are
+not included in that hash. New catalog versions use bounded numeric SemVer
+without leading zeroes, while frozen legacy version acceptance is unchanged.
+These declarations do not prove visual uniqueness;
+the 1040-preset render and design review remain separate acceptance gates.
+
+`DesignLibraryV2` describes a data-only ZIP: a manifest, preset envelopes,
+PNG previews, NOTICE and optional provenance/license text. Manifest `files`
+hashes the exact uncompressed bytes of every resource except the manifest;
+`entries` lists preset paths and their same byte hashes. The package digest is
+SHA-256 of the RFC 8785 canonical manifest, distinct from a ZIP's transport hash.
+Core independently enforces paths, special-file rejection, size/pixel/ratio
+limits, exact trusted module versions, asset placeholders and immutable versions.
+Archives are validated data, NOT signed or executable packages. No license
+Authority key is a catalog signing key. Unknown signature/code fields fail closed.
+
+Generate these three new schemas with
+`node scripts/design-catalog-schemas.mjs`; `npm test` checks deterministic output.
+They do not replace or edit any frozen v1/v2 schema. Old library-v1 archives need
+explicit metadata migration; the host must not invent composition declarations.
+`CatalogImportReportV1.scope=offline` only means structural validation: workspace
+permissions, conflicts, quotas and CAS are checked by the authenticated Core API.
+Rollback creates a new catalog revision and retains exact historical versions;
+it is not a rewrite of a site's saved document or published release.
+
 Iteration 5A adds PageDocumentV2, bounded LayoutNodeV2 trees, exact revision refs,
 theme/shell/composition contracts, data-only DesignPresetV1/SiteTemplateV1 and a
 separate SitePublicConfigV2. Existing v1 schemas are byte-for-byte retained and

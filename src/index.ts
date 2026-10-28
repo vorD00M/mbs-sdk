@@ -1,4 +1,5 @@
 export type Edition='CLOUD_UNLIMITED'|'OPERATOR'|'STUDIO';
+export type { CatalogPresetV1, CompositionAxis, CatalogLabels, DesignLibraryV2, CatalogImportReportV1, CatalogStateV1, CatalogCommitV1 } from './catalog.js';
 export type { PageDocumentV2, EditablePageDocument, LayoutNodeV2, LayoutNodeBaseV2, LayoutBranchV2, LayoutModuleV2, LayoutSlotV2, LayoutDividerV2, LayoutRegionRefV2, StyleTokensV1, ResponsiveLayoutV1, BuilderSlot, BuilderBreakpoint, BuilderGrid, BuilderColor, BuilderFont, RevisionRefV1, RichTextV1, RichBlockV1, RichInlineV1, StaticSourceV1, StaticDataItemV1, ThemeTokensV1, ThemePackV1, SiteThemeV1, SiteShellV1, RegionDocumentV1, BuilderCompositionV1, DesignProvenanceV1, DesignCategoryV1, DesignPresetV1, SiteTemplateV1, BuilderPreviewV1 } from './builder.js';
 export { designCategories } from './builder.js';
 export type { SitePublicConfigV2, PublicRenderRequestV2 } from './builder.js';
