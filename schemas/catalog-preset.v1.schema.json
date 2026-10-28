@@ -1,0 +1,254 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://mbsplatform.online/schemas/catalog-preset.v1.schema.json",
+  "type": "object",
+  "additionalProperties": false,
+  "properties": {
+    "format": {
+      "const": "mbs-catalog-preset-v1"
+    },
+    "preset": {
+      "$ref": "https://mbsplatform.online/schemas/design-preset.v1.schema.json"
+    },
+    "metadata": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "tags": {
+          "type": "object",
+          "additionalProperties": false,
+          "properties": {
+            "ru-RU": {
+              "type": "array",
+              "minItems": 1,
+              "maxItems": 12,
+              "uniqueItems": true,
+              "items": {
+                "type": "string",
+                "minLength": 1,
+                "maxLength": 40
+              }
+            },
+            "en-US": {
+              "type": "array",
+              "minItems": 1,
+              "maxItems": 12,
+              "uniqueItems": true,
+              "items": {
+                "type": "string",
+                "minLength": 1,
+                "maxLength": 40
+              }
+            }
+          },
+          "required": [
+            "ru-RU",
+            "en-US"
+          ]
+        },
+        "features": {
+          "type": "object",
+          "additionalProperties": false,
+          "properties": {
+            "geometry": {
+              "type": "object",
+              "additionalProperties": false,
+              "properties": {
+                "ru-RU": {
+                  "type": "string",
+                  "minLength": 1,
+                  "maxLength": 300
+                },
+                "en-US": {
+                  "type": "string",
+                  "minLength": 1,
+                  "maxLength": 300
+                }
+              },
+              "required": [
+                "ru-RU",
+                "en-US"
+              ]
+            },
+            "media": {
+              "type": "object",
+              "additionalProperties": false,
+              "properties": {
+                "ru-RU": {
+                  "type": "string",
+                  "minLength": 1,
+                  "maxLength": 300
+                },
+                "en-US": {
+                  "type": "string",
+                  "minLength": 1,
+                  "maxLength": 300
+                }
+              },
+              "required": [
+                "ru-RU",
+                "en-US"
+              ]
+            },
+            "typography": {
+              "type": "object",
+              "additionalProperties": false,
+              "properties": {
+                "ru-RU": {
+                  "type": "string",
+                  "minLength": 1,
+                  "maxLength": 300
+                },
+                "en-US": {
+                  "type": "string",
+                  "minLength": 1,
+                  "maxLength": 300
+                }
+              },
+              "required": [
+                "ru-RU",
+                "en-US"
+              ]
+            },
+            "grid": {
+              "type": "object",
+              "additionalProperties": false,
+              "properties": {
+                "ru-RU": {
+                  "type": "string",
+                  "minLength": 1,
+                  "maxLength": 300
+                },
+                "en-US": {
+                  "type": "string",
+                  "minLength": 1,
+                  "maxLength": 300
+                }
+              },
+              "required": [
+                "ru-RU",
+                "en-US"
+              ]
+            },
+            "order": {
+              "type": "object",
+              "additionalProperties": false,
+              "properties": {
+                "ru-RU": {
+                  "type": "string",
+                  "minLength": 1,
+                  "maxLength": 300
+                },
+                "en-US": {
+                  "type": "string",
+                  "minLength": 1,
+                  "maxLength": 300
+                }
+              },
+              "required": [
+                "ru-RU",
+                "en-US"
+              ]
+            },
+            "decoration": {
+              "type": "object",
+              "additionalProperties": false,
+              "properties": {
+                "ru-RU": {
+                  "type": "string",
+                  "minLength": 1,
+                  "maxLength": 300
+                },
+                "en-US": {
+                  "type": "string",
+                  "minLength": 1,
+                  "maxLength": 300
+                }
+              },
+              "required": [
+                "ru-RU",
+                "en-US"
+              ]
+            },
+            "states": {
+              "type": "object",
+              "additionalProperties": false,
+              "properties": {
+                "ru-RU": {
+                  "type": "string",
+                  "minLength": 1,
+                  "maxLength": 300
+                },
+                "en-US": {
+                  "type": "string",
+                  "minLength": 1,
+                  "maxLength": 300
+                }
+              },
+              "required": [
+                "ru-RU",
+                "en-US"
+              ]
+            },
+            "responsive": {
+              "type": "object",
+              "additionalProperties": false,
+              "properties": {
+                "ru-RU": {
+                  "type": "string",
+                  "minLength": 1,
+                  "maxLength": 300
+                },
+                "en-US": {
+                  "type": "string",
+                  "minLength": 1,
+                  "maxLength": 300
+                }
+              },
+              "required": [
+                "ru-RU",
+                "en-US"
+              ]
+            },
+            "interaction": {
+              "type": "object",
+              "additionalProperties": false,
+              "properties": {
+                "ru-RU": {
+                  "type": "string",
+                  "minLength": 1,
+                  "maxLength": 300
+                },
+                "en-US": {
+                  "type": "string",
+                  "minLength": 1,
+                  "maxLength": 300
+                }
+              },
+              "required": [
+                "ru-RU",
+                "en-US"
+              ]
+            }
+          },
+          "required": [],
+          "minProperties": 2
+        }
+      },
+      "required": [
+        "tags",
+        "features"
+      ]
+    },
+    "contentDigest": {
+      "type": "string",
+      "pattern": "^[0-9a-f]{64}$"
+    }
+  },
+  "required": [
+    "format",
+    "preset",
+    "metadata",
+    "contentDigest"
+  ]
+}
