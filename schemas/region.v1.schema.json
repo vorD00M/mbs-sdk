@@ -1,0 +1,35 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://mbsplatform.online/schemas/region.v1.schema.json",
+  "type": "object",
+  "additionalProperties": false,
+  "properties": {
+    "format": {
+      "const": "mbs-region-v1"
+    },
+    "siteId": {
+      "type": "string",
+      "format": "uuid"
+    },
+    "locale": {
+      "type": "string",
+      "pattern": "^[A-Za-z]{2,3}(-[A-Za-z0-9]{2,8})*$",
+      "maxLength": 35
+    },
+    "name": {
+      "type": "string",
+      "minLength": 1,
+      "maxLength": 120
+    },
+    "layout": {
+      "$ref": "https://mbsplatform.online/schemas/builder-common.v1.schema.json#/$defs/layoutNode"
+    }
+  },
+  "required": [
+    "format",
+    "siteId",
+    "locale",
+    "name",
+    "layout"
+  ]
+}

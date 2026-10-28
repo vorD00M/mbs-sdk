@@ -1,4 +1,8 @@
 export type Edition='CLOUD_UNLIMITED'|'OPERATOR'|'STUDIO';
+export type { PageDocumentV2, EditablePageDocument, LayoutNodeV2, LayoutNodeBaseV2, LayoutBranchV2, LayoutModuleV2, LayoutSlotV2, LayoutDividerV2, LayoutRegionRefV2, StyleTokensV1, ResponsiveLayoutV1, BuilderSlot, BuilderBreakpoint, BuilderGrid, BuilderColor, BuilderFont, RevisionRefV1, RichTextV1, RichBlockV1, RichInlineV1, StaticSourceV1, StaticDataItemV1, ThemeTokensV1, ThemePackV1, SiteThemeV1, SiteShellV1, RegionDocumentV1, BuilderCompositionV1, DesignProvenanceV1, DesignCategoryV1, DesignPresetV1, SiteTemplateV1, BuilderPreviewV1 } from './builder.js';
+export { designCategories } from './builder.js';
+export type { SitePublicConfigV2, PublicRenderRequestV2 } from './builder.js';
+export { layoutLocations, moveLayoutNode, insertLayoutNode, removeLayoutNode, duplicateLayoutNode, upgradePageV1 } from './layout.js';
 export type { SitePublicConfigV1, PublicRenderRequestV1, PublicRenderResultV1, DeliveryProjectionV1, PublishState, PublishJobV1, VerifiedReleaseV1 } from './publishing.js';
 export type {BuiltinModulePackageV1, DraftPreviewV1} from './modules.js';
 export type LicenseState='UNACTIVATED'|'VALID'|'GRACE'|'EXPIRED'|'REVOKED'|'INVALID_SIGNATURE'|'WRONG_INSTALLATION'|'UNSUPPORTED_FORMAT';

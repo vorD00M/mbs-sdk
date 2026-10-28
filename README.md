@@ -1,5 +1,18 @@
 # MBS SDK
 
+Iteration 5A adds PageDocumentV2, bounded LayoutNodeV2 trees, exact revision refs,
+theme/shell/composition contracts, data-only DesignPresetV1/SiteTemplateV1 and a
+separate SitePublicConfigV2. Existing v1 schemas are byte-for-byte retained and
+checked against accepted hashes. New schemas are generated reproducibly by
+`node scripts/builder-schemas.mjs`; `npm test` checks generation drift.
+
+Tree helpers move/insert/duplicate/remove immutable data, reject cycles and
+enforce 500 nodes/depth 8. An explicit v1 upgrader creates new data; it does not
+rewrite saved v1 revisions or change exact legacy module versions. Semantic
+main/slot rules, composed limits, module props, ownership, referenced revisions,
+URLs and asset permissions still require independent Core/Runtime validation.
+These contracts alone are not a working visual editor, preset catalog or CMS.
+
 Module Engine adds `BuiltinModulePackageV1` and `DraftPreviewV1` as separate,
 additive wire contracts. Existing PageDocument v1, ModuleManifest and localization
 schemas are unchanged. A built-in package is compiled into the shared renderer;
